@@ -47,6 +47,16 @@ void testUserInput_Negative()
     ASSERT_EQUAL(expected, actual);
 }
 
+void test_middle_grade()
+{
+    double m {4.1};
+    double c {4.3};
+    double p {3.9};
+    double expected = 4.1;
+    double actual = middle_grade(m, c, p);
+    ASSERT_EQUAL(expected, actual);
+}
+
 int main()
 {
     suite s;
@@ -55,6 +65,7 @@ int main()
     s.push_back(CUTE(testUserInput_Empty));
     s.push_back(CUTE(testUserInput_Letter));
     s.push_back(CUTE(testUserInput_Negative));
+    s.push_back(CUTE(test_middle_grade));
     ide_listener<> listener;
     makeRunner(listener)(s, "All Tests");
     
